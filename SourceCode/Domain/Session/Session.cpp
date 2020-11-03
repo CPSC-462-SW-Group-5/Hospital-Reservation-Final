@@ -16,23 +16,25 @@ namespace  // anonymous (private) working area
 
 // this function takes in a session and a number of arguments
 // we should change this with our own function or like createMedicalAppt()
+
   std::any createMedicalAppt( Domain::Session::SessionBase & session, const std::vector<std::string> & args )
   {
-    // TO-DO  Verify there is such a book and the mark the book as being checked out by user
     std::string results = args[0];
-    std::string output = "Here is the list of available doctors\n";
+    std::string output = "\nHere is the list of available doctors:\n";
     session._logger << "Patient reported to have issue:  " + results;
     std::vector<std::string> doctor_list = {"Dr. Jones", "Dr. Rich", "Dr. Stone", "Dr. Mike", "Dr. Nguyen"};
     int count = 1;
     for(auto it = doctor_list.begin(); it != doctor_list.end(); ++it){
-      session._logger << "Doctor " + std::to_string(count) + ": " + *it + " ";
+      //session._logger << "Doctor " + std::to_string(count) + ": " + *it + " ";
+      std::string temp_list = std::to_string(count) + ")" + *it + "\n";
+      output.append(temp_list); // adding the doctors to the output
       ++count;
     
     }
 
     return {output};
   }
-
+  
   std::any reqDoctor( Domain::Session::SessionBase & session, const std::vector<std::string> & args) 
   {
     session._logger << "Patient requested " + args[0];
@@ -70,13 +72,15 @@ namespace  // anonymous (private) working area
   std::any generateServicesList( Domain::Session::SessionBase & session, const std::vector<std::string> & args )
 {
   std::string results = args[0];
-  std::string output = "Here is the list of the services offered by the system \n";
+  std::string output = "\nHere is the list of the services offered by the system:\n";
 
   std::vector<std::string> services_list = {"Create Medical Appointment", "Pay Medical Invoice", "Generate Medical Report", "Generate Prescription History"};
   int count = 1;
-  session._logger << "List of Services \n";
+  //session._logger << "List of Services \n";
   for(auto it = services_list.begin(); it != services_list.end(); ++it) {
-    session._logger << std::to_string(count) + ". " + *it + " ";
+    //session._logger << std::to_string(count) + ". " + *it + " ";
+    std::string temp_list = std::to_string(count) + ")" + *it + "\n";
+    output.append(temp_list); // adding the services to the output
     ++count;
   }
 
@@ -113,15 +117,7 @@ std::any reqPaymentOption ( Domain::Session::SessionBase & session, const std::v
   return {output};
 }
 
- /*
-   std::any userAuthenticate( Domain::Session::SessionBase & session, const std::vector<std::string> & args)
-  {
-    // should the authentication go here?
-    std::string results = "testing";
-    session._logger << "this is a test: " + results;
-    return {results};
-  }
-  */
+ 
 }    // anonymous (private) working area
 
  

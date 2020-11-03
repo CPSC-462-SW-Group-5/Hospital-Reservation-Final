@@ -14,7 +14,8 @@ namespace Domain::Payment
     virtual std::vector<std::string> generateServicesList() = 0;
     virtual std::vector<std::string> reqPayService(std::string nameOfService)        = 0;
     virtual std::string              reqPaymentOption( std::string cardNumber, std::string cvv ) = 0;
-
+    // pass strings by referce tip from Professor
+    // the header files look good, the return value matches with what the SSD intends
   protected:
     // Copy assignment operators, protected to prevent mix derived-type assignments
     PaymentHandler & operator=( const PaymentHandler & rhs ) = default;    // copy assignment

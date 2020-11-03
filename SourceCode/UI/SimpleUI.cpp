@@ -107,7 +107,7 @@ namespace UI
       do
       {
         for( unsigned i = 0; i != commands.size(); ++i ) std::cout << std::setw( 2 ) << i << " - " << commands[i] << '\n';
-        std::cout << std::setw( 2 ) << commands.size() << " - " << "Quit\n";
+        std::cout << std::setw( 2 ) << commands.size() << " - " << "Sign Off\n";
 
         std::cout << "  action (0-" << commands.size() << "): ";
         std::cin >> menuSelection;
