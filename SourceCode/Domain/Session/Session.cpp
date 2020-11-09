@@ -113,7 +113,7 @@ std::any reqPayService ( Domain::Session::SessionBase & session, const std::vect
 
 std::any reqPaymentOption ( Domain::Session::SessionBase & session, const std::vector<std::string> & args )
 {
-  std::string output = "Here is the your payment receipt: You made a payment using the card ending with " + args[0] + "with the cvv code of " + args[1] + ".";
+  std::string output = "Here is the your payment receipt: You made a payment on 11/04/20 for 'Create Medical Appointment' using the card with the number " + args[0] + " with the cvv code of " + args[1] + ".";
   return {output};
 }
 

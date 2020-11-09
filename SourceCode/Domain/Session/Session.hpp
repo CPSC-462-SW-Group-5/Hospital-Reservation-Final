@@ -40,13 +40,6 @@ namespace Domain::Session
     DispatchTable                                              _commandDispatch;
   };    // class SessionBase
 
-  // take these out later 
-  /*
-  struct AdministratorSession : SessionBase{ AdministratorSession( const UserCredentials & credentials ); };
-  struct BorrowerSession      : SessionBase{ BorrowerSession     ( const UserCredentials & credentials ); };
-  struct LibrarianSession     : SessionBase{ LibrarianSession    ( const UserCredentials & credentials ); };
-  struct ManagementSession    : SessionBase{ ManagementSession   ( const UserCredentials & credentials ); };
-  */
   // create our patient session 
   // TODO
   struct PatientSession : SessionBase{ PatientSession(const UserCredentials & credentials ); };

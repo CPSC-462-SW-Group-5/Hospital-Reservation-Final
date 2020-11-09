@@ -12,7 +12,7 @@ namespace Domain::Reservation
 
     virtual std::vector<std::string> createMedicalAppt( std::string issue ) = 0;
     virtual std::vector<std::string> reqDoctor( std::string doctor_name )   = 0;
-    virtual std::string              bookAppt( std::string date, std::string time ) = 0;
+    virtual std::string              bookAppt( std::string doctor_name, std::string date, std::string time ) = 0;
 
   protected:
     // Copy assignment operators, protected to prevent mix derived-type assignments
