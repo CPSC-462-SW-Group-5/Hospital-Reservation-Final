@@ -34,12 +34,18 @@ namespace UI
     {
       _logger << "Starting scenario 1: Booking a Reservation Successfully";
 
-      auto session  = Domain::Session::SessionHandler::userAuthenticates( {"Tom", "CPSC 462 Rocks!", {"Borrower"}} );
+      auto session  = Domain::Session::SessionHandler::userAuthenticates( {"mytest@email.com", "team5", {"Patient"}} );
       auto commands = session->getCommands();
-      auto results  = session->executeCommand( "Checkout Book", {"Applied UML and Patterns", "Larman", "0-13-148906-2"} );
-      //session->signOff();
+      auto results  = session->executeCommand( "Create Medical Appointment", {"Insomnia"} );
+      results = session->executeCommand("Request Doctor", {"Dr. Jones"});
+      results = session->executeCommand("Book Appointment", { "Dr. Jones", "10/01/20", "10:00 AM" });
+      results = session->executeCommand("Sign Out", {"Sign Me Out"});
+      
 
-      _logger << "Completed scenario 1";
+      _logger << "====Completed scenario 1====";
+     
+      
+
     }
   }
 }    // namespace UI

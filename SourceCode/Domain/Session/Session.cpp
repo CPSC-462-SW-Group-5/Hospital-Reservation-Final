@@ -11,12 +11,16 @@ namespace  // anonymous (private) working area
                               { return {}; }  // Stubbed for now
 
   STUB( help         )
-  STUB( shutdown     )
+
 
 
 // this function takes in a session and a number of arguments
 // we should change this with our own function or like createMedicalAppt()
-
+std::any signOff(Domain::Session::SessionBase& session, const std::vector<std::string>& args)
+  {
+      std::string output = "Signing off...\n";
+      return output;
+  }
   std::any createMedicalAppt( Domain::Session::SessionBase & session, const std::vector<std::string> & args )
   {
     std::string results = args[0];
@@ -197,7 +201,7 @@ namespace Domain::Session
   PatientSession::PatientSession( const UserCredentials & credentials ) : SessionBase( "Patient", credentials )
   {
     _commandDispatch = { {"Help",            help        },
-                         {"Shutdown System", shutdown    },
+                         {"Sign Out", signOff    },
                          {"Create Medical Appointment", createMedicalAppt}, 
                          {"Request Doctor", reqDoctor},
                          {"Generate List of Services", generateServicesList},
